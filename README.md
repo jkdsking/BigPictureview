@@ -1,5 +1,4 @@
 # BigPictureview
-查看图片大图
 ![image](https://github.com/jkdsking/BigPictureview/blob/master/test1.gif)
 
 
