@@ -1,5 +1,7 @@
 # BigPictureview
 查看图片大图
+效果图如下
+![image](https://github.com/jkdsking/BigPictureview/blob/master/test1.gif)
 gradle接入
 
 	allprojects {
@@ -12,13 +14,7 @@ gradle接入
 	dependencies {
 	        implementation 'com.github.jkdsking:BigPictureview:1.0.1'
 	}
-  
-  
-  
  
-  
- 
-  
   具体使用：注意长按可以保存图片
 
                 List<String> list = new ArrayList<>();
@@ -39,12 +35,3 @@ gradle接入
                         .setPlacrHolder(R.drawable.ic_photo_white_300dp)	//占位符图片（图片加载完成前显示的资源图片，来源drawable或者mipmap）
                         .build();
                 ImagePagerActivity.startActivity(MainActivity.this, config);
-		
-	
-	
-	
-	
-	
-	
-		
-		
