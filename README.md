@@ -1,7 +1,8 @@
 # BigPictureview
 查看图片大图
-效果图如下
 ![image](https://github.com/jkdsking/BigPictureview/blob/master/test1.gif)
+
+
 gradle接入
 
 	allprojects {
