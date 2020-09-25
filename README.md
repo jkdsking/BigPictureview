@@ -1,0 +1,3 @@
+# BigPictureview
+查看图片大图
+使用教程查看app里面的mainActivity
