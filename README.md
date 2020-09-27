@@ -1,8 +1,9 @@
 # BigPictureview
+
 ![image](https://github.com/jkdsking/BigPictureview/blob/master/test1.gif)
 
 
-gradle接入
+## gradle接入
 
 	allprojects {
 		repositories {
@@ -14,8 +15,7 @@ gradle接入
 	dependencies {
 	        implementation 'com.github.jkdsking:BigPictureview:1.0.1'
 	}
- 
-  具体使用：注意长按可以保存图片
+ ## 具体使用：注意长按可以保存图片
 
                 List<String> list = new ArrayList<>();
                 //网络图片
@@ -35,3 +35,19 @@ gradle接入
                         .setPlacrHolder(R.drawable.ic_photo_white_300dp)	//占位符图片（图片加载完成前显示的资源图片，来源drawable或者mipmap）
                         .build();
                 ImagePagerActivity.startActivity(MainActivity.this, config);
+## 开源协议
+
+Copyright jkdsking BigPictureview
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+```        
