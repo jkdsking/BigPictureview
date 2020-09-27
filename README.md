@@ -1,4 +1,5 @@
 # BigPictureview
+## 图片查看大图器 长按图片可实现保存本地 6.0以上不需要再动态获取权限 
 
 ![image](https://github.com/jkdsking/BigPictureview/blob/master/test1.gif)
 
@@ -15,7 +16,7 @@
 	dependencies {
 	        implementation 'com.github.jkdsking:BigPictureview:1.0.1'
 	}
- ## 具体使用：注意长按可以保存图片
+ ## 具体使用
 
                 List<String> list = new ArrayList<>();
                 //网络图片
@@ -36,7 +37,7 @@
                         .build();
                 ImagePagerActivity.startActivity(MainActivity.this, config);
 ## 开源协议
-
+```
 Copyright jkdsking BigPictureview
 
 Licensed under the Apache License, Version 2.0 (the "License");
