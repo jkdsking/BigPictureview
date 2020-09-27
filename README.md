@@ -1,4 +1,5 @@
 ## 图片查看大图器 长按图片可实现保存本地 6.0以上不需要再动态获取权限 
+## 在https://github.com/SuperKotlin/PictureViewer 基础之上修改
 
 ![image](https://github.com/jkdsking/BigPictureview/blob/master/test1.gif)
 
