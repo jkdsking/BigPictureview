@@ -18,6 +18,7 @@ public class PictureConfig {
     public static int position = 0;//下标
     public static ArrayList<String> list;
 
+
     public PictureConfig(Builder builder) {
         this.mIsShowNumber = builder.mIsShowNumber;
         this.needDownload = builder.needDownload;

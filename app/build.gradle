@@ -1,12 +1,12 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 28
-    buildToolsVersion "28.0.0"
+    compileSdkVersion 30
+    buildToolsVersion "30.0.0"
     defaultConfig {
         applicationId "com.jkds.bigpictureview"
         minSdkVersion 19
-        targetSdkVersion 28
+        targetSdkVersion 30
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -27,6 +27,6 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
     implementation project(':PictureViewer')
 
-//    implementation 'com.github.jkdsking:BigPictureview:1.0.1'
+//    implementation 'com.github.jkdsking:BigPictureview:1.1.1'
 
 }

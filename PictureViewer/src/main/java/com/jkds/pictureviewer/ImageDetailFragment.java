@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -22,6 +23,8 @@ import com.bumptech.glide.request.RequestOptions;
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.request.transition.Transition;
 import com.jkds.permission.OnPermission;
+import com.jkds.permission.Permission;
+import com.jkds.permission.PermissionUtil;
 import com.jkds.permission.PermissionsRequest;
 
 import java.util.List;
@@ -63,20 +66,18 @@ public class ImageDetailFragment extends Fragment {
                     AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
                     builder.setMessage("保存图片");
                     builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
-
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
 
                         }
                     });
                     builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
-
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            //给权限
 
-                            PermissionsRequest.with(getActivity())
-                                    .permission(Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE)
+                            if (Build.VERSION.SDK_INT>=Build.VERSION_CODES.R){
+                                PermissionsRequest.with(getActivity())
+                                    .permission(Permission.MANAGE_EXTERNAL_STORAGE)
                                     // 申请多个权限
                                     .request(new OnPermission() {
                                         @Override
@@ -99,22 +100,33 @@ public class ImageDetailFragment extends Fragment {
 
 
 
-//                            PermissionRequest.getInstance().build(getActivity()).requestPermission(new PermissionRequest.PermissionListener() {
-//                                @Override
-//                                public void permissionGranted() {
-//                                    ImageUtil.saveImage(getActivity(), mImageUrl, mBitmap);
-//                                }
-//
-//                                @Override
-//                                public void permissionDenied(ArrayList<String> permissions) {
-//                                    Toast.makeText(getActivity(), "请打开存储权限后保存图片", Toast.LENGTH_SHORT).show();
-//                                }
-//
-//                                @Override
-//                                public void permissionNeverAsk(ArrayList<String> permissions) {
-//                                    Toast.makeText(getActivity(), "请打开存储权限后保存图片", Toast.LENGTH_SHORT).show();
-//                                }
-//                            }, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE});
+                            }else {
+
+                                PermissionsRequest.with(getActivity())
+                                        .permission(Permission.Group.STORAGE)
+                                        // 申请多个权限
+                                        .request(new OnPermission() {
+                                            @Override
+                                            public void hasPermission(List<String> granted, boolean all) {
+                                                if (all) {
+                                                    ImageUtil.saveImage(getActivity(), mImageUrl, mBitmap);
+                                                } else {
+                                                    Toast.makeText(getActivity(), "请打开存储权限后保存图片", Toast.LENGTH_SHORT).show();
+                                                }
+                                            }
+                                            @Override
+                                            public void noPermission(List<String> denied, boolean never) {
+                                                if (never) {
+                                                    Toast.makeText(getActivity(), "请打开存储权限后保存图片", Toast.LENGTH_SHORT).show();
+                                                } else {
+                                                    Toast.makeText(getActivity(), "请打开存储权限后保存图片", Toast.LENGTH_SHORT).show();
+                                                }
+                                            }
+                                        });
+
+                            }
+
+
 
 
                         }
