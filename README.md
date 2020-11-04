@@ -1,5 +1,4 @@
-## 图片查看大图器 长按图片可实现保存本地 6.0以上不需要再动态获取权限 可以手势（双击）放大缩小
-## 注意:targetSdkVersion<=28方可保存
+## 图片查看大图器 长按图片可实现保存本地 6.0以上不需要再动态获取权限 可以手势（双击）放大缩小 已适配android11(即targetSdkVersion=30)
 
 
 ![image](https://github.com/jkdsking/BigPictureview/blob/master/test1.gif)
