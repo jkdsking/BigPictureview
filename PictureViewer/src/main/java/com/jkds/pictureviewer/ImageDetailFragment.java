@@ -1,5 +1,4 @@
 package com.jkds.pictureviewer;
-
 import android.Manifest;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -24,10 +23,7 @@ import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.request.transition.Transition;
 import com.jkds.permission.OnPermission;
 import com.jkds.permission.PermissionsRequest;
-import com.jkds.pictureviewer.permission.PermissionRequest;
-import com.jkds.pictureviewer.permission.PermissionUtil;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ImageDetailFragment extends Fragment {
