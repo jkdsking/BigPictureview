@@ -12,6 +12,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/PictureViewer" />
+            <option value="$PROJECT_DIR$/Transferee" />
             <option value="$PROJECT_DIR$/app" />
           </set>
         </option>
