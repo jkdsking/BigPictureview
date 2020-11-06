@@ -1,4 +1,3 @@
 include ':Transferee'
 include ':app'
 rootProject.name = "BigPictureview"
-include ':PictureViewer'

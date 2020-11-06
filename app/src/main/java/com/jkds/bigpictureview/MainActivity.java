@@ -10,12 +10,6 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.gyf.immersionbar.ImmersionBar;
-import com.hitomi.tilibrary.style.index.NumberIndexIndicator;
-import com.hitomi.tilibrary.style.progress.ProgressBarIndicator;
-import com.hitomi.tilibrary.transfer.TransferConfig;
-import com.hitomi.tilibrary.transfer.Transferee;
-import com.hitomi.tilibrary.utils.GlideImageLoader;
 import com.zhy.adapter.recyclerview.CommonAdapter;
 import com.zhy.adapter.recyclerview.MultiItemTypeAdapter;
 import com.zhy.adapter.recyclerview.base.ViewHolder;
