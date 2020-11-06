@@ -14,10 +14,10 @@
 	}
 	
 	dependencies {
-	        implementation 'com.github.jkdsking:BigPictureview:1.2.0'
+	        implementation 'com.github.jkdsking:BigPictureview:1.3.0'
 	}
  ## 具体使用
-                 protected Transferee transferee;声明
+     protected Transferee transferee;声明
      
      protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
