@@ -14,7 +14,7 @@
 	}
 	
 	dependencies {
-	        implementation 'com.github.jkdsking:BigPictureview:1.1.1'
+	        implementation 'com.github.jkdsking:BigPictureview:1.2.0'
 	}
  ## 具体使用
 
