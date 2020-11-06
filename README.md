@@ -1,4 +1,4 @@
-## 图片查看大图器 长按图片可实现保存本地 6.0以上不需要再动态获取权限 可以手势（双击）放大缩小 已适配android11(即targetSdkVersion=30)
+## 图片查看大图器 需要展示图片的activity不能沉嵌式状态栏 必须不能
 
 
 ![image](https://github.com/jkdsking/BigPictureview/blob/master/test1.gif)
@@ -17,25 +17,44 @@
 	        implementation 'com.github.jkdsking:BigPictureview:1.2.0'
 	}
  ## 具体使用
+protected Transferee transferee;声明
+     
+   protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        ImmersionBar.with(this).statusBarColor(R.color.colorPrimary).init();//修改状态栏
+        transferee = Transferee.init(this);//初始化
+        setContentView(R.layout.activity_main);
 
-                List<String> list = new ArrayList<>();
-                //网络图片
-                list.add("https://upload-images.jianshu.io/upload_images/5809200-a99419bb94924e6d.jpg");
-                list.add("https://upload-images.jianshu.io/upload_images/5809200-736bc3917fe92142.jpg");
-                list.add("https://upload-images.jianshu.io/upload_images/5809200-7fe8c323e533f656.jpg");
-                /**
-                 * 亦可本地图片
-                 */
-                //使用方式
-                PictureConfig config = new PictureConfig.Builder()
-                        .setListData((ArrayList<String>) list)	//图片数据List<String> list
-                        .setPosition(0)	//图片下标（从第position张图片开始浏览）
-                        .setDownloadPath("pictureviewer")	//图片下载文件夹地址
-                        .setIsShowNumber(true)//是否显示数字下标
-                        .needDownload(true)	//是否支持图片下载 长按可实现下载
-                        .setPlacrHolder(R.drawable.ic_photo_white_300dp)	//占位符图片（图片加载完成前显示的资源图片，来源drawable或者mipmap）
-                        .build();
-                ImagePagerActivity.startActivity(MainActivity.this, config);
+    }
+   
+   @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        transferee.destroy();
+    }
+    
+   TransferConfig recyclerTransConfig = TransferConfig.build()
+                .setListData(SourceConfig.getOriginalSourceGroup())//数据源
+                .setIndexIndicator(new NumberIndexIndicator())//是否显示指示器 传null 表示不显示
+                .setImageLoader(GlideImageLoader.with(MainActivity.this))
+                .bindRecyclerView(recyclerView, R.id.iv_thum);//第一个参数 recyview(也可以绑定ListView/GridView/ImageView) 第二个参数是item布局的iamgeview id 
+
+   recyclerTransConfig.setLongClickListener(new Transferee.OnTransfereeLongClickListener() {
+            @Override
+            public void onLongClick(ImageView imageView, String imageUri, int pos) {
+
+   Toast.makeText(MainActivity.this,"长按了"+imageUri,Toast.LENGTH_SHORT).show();
+        }
+        });
+	
+recyclerTransConfig.setPosition(pos);//pos 是你点击的图片下标
+ transferee.apply(recyclerTransConfig).show();
+    
+    
+    
+
+
+
 ## 开源协议
 ```
 Copyright jkdsking BigPictureview
