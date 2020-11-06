@@ -17,9 +17,9 @@
 	        implementation 'com.github.jkdsking:BigPictureview:1.2.0'
 	}
  ## 具体使用
-protected Transferee transferee;声明
+                 protected Transferee transferee;声明
      
-   protected void onCreate(Bundle savedInstanceState) {
+     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ImmersionBar.with(this).statusBarColor(R.color.colorPrimary).init();//修改状态栏
         transferee = Transferee.init(this);//初始化
@@ -27,28 +27,28 @@ protected Transferee transferee;声明
 
     }
    
-   @Override
+    @Override
     protected void onDestroy() {
         super.onDestroy();
         transferee.destroy();
     }
     
-   TransferConfig recyclerTransConfig = TransferConfig.build()
+    TransferConfig recyclerTransConfig = TransferConfig.build()
                 .setListData(SourceConfig.getOriginalSourceGroup())//数据源
                 .setIndexIndicator(new NumberIndexIndicator())//是否显示指示器 传null 表示不显示
                 .setImageLoader(GlideImageLoader.with(MainActivity.this))
                 .bindRecyclerView(recyclerView, R.id.iv_thum);//第一个参数 recyview(也可以绑定ListView/GridView/ImageView) 第二个参数是item布局的iamgeview id 
 
-   recyclerTransConfig.setLongClickListener(new Transferee.OnTransfereeLongClickListener() {
+    recyclerTransConfig.setLongClickListener(new Transferee.OnTransfereeLongClickListener() {
             @Override
             public void onLongClick(ImageView imageView, String imageUri, int pos) {
 
-   Toast.makeText(MainActivity.this,"长按了"+imageUri,Toast.LENGTH_SHORT).show();
+    Toast.makeText(MainActivity.this,"长按了"+imageUri,Toast.LENGTH_SHORT).show();
         }
         });
 	
-recyclerTransConfig.setPosition(pos);//pos 是你点击的图片下标
- transferee.apply(recyclerTransConfig).show();
+    recyclerTransConfig.setPosition(pos);//pos 是你点击的图片下标
+    transferee.apply(recyclerTransConfig).show();//展示
     
     
     
