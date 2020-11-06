@@ -1,8 +1,5 @@
-## 图片查看大图器 需要展示图片的activity不能沉嵌式状态栏 必须不能
-
-
-![image](https://github.com/jkdsking/BigPictureview/blob/master/test1.gif)
-
+## 图片查看大图器 
+## 注意 需要展示图片的activity不能沉嵌式状态栏 必须不能
 
 ## gradle接入
 
