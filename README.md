@@ -93,8 +93,9 @@
 	//无view绑定使用
 	      transferee.apply(TransferConfig.build()
                         .setImageLoader(GlideImageLoader.with(getApplicationContext()))
-                        .setListData()//图片或者视频的高清资源
-			.setPosition(position)//显示第几个
+                        .setListData()////图片或者视频的高清资源
+                        .setIndexIndicator(new NumberIndexIndicator())//是否显示指示器 传null 表示不显示
+                        .setNowThumbnailIndex(position)//显示第几个
                         .create()
                 ).show();
 	
