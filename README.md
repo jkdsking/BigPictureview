@@ -35,8 +35,8 @@
                 .setListData()//图片或者视频高清数据源
                 .setIndexIndicator(new NumberIndexIndicator())//是否显示指示器 传null 表示不显示
                 .setImageLoader(GlideImageLoader.with(MainActivity.this))
-		.setMissPlaceHolder()//缺省的占位图(资源ID)
-		.setErrorPlaceHolder()//图片加载错误显示的图片(资源ID)
+		  .setMissPlaceHolder()//缺省的占位图(资源ID)
+		  .setErrorPlaceHolder()//图片加载错误显示的图片(资源ID)
                 .enableScrollingWithPageChange(true)
                 .bindRecyclerView(recyclerView, R.id.iv_thum);//第一个参数传入RecyclerView 第二个参数 传入 item 布局中的ImageView id
 
