@@ -27,11 +27,10 @@
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        transferee.destroy();
+        transferee.destroy();//资源销毁，防止内存泄漏
     }
     
-    RecyclerView (九宫格图片显示) 使用
-   
+    RecyclerView 使用
           TransferConfig recyclerTransConfig = TransferConfig.build()
                 .setListData()//图片或者视频高清数据源
                 .setIndexIndicator(new NumberIndexIndicator())//是否显示指示器 传null 表示不显示
@@ -64,10 +63,11 @@
         recyclerView.setLayoutManager(new GridLayoutManager(this, 3));
         recyclerView.setAdapter(recyclerAdapter);
     
+       
+       
        listview/GridView使用
-      
-       final TransferConfig gridTransConfig = TransferConfig.build()
-                .setListData()//视频数据源
+       TransferConfig gridTransConfig = TransferConfig.build()
+                .setListData()//图片或视频数据源
                 .setIndexIndicator(new NumberIndexIndicator())//是否显示指示器 传null 表示不显示
                 .setImageLoader(GlideImageLoader.with(getApplicationContext()))
                 .enableScrollingWithPageChange(true)
@@ -78,19 +78,22 @@
             transferee.apply(gridTransConfig).show();//显示
         });
 	
-	//单个imageview 使用
 	
+	
+	//单个imageview 使用
 	  transferee.apply(TransferConfig.build()
-                    .setSourceUrlList()//图片或者视频的高清资源
+                    .setListData()//图片或者视频的高清资源
                     .setImageLoader(GlideImageLoader.with(getApplicationContext()))
                     .enableJustLoadHitPage(true)//只加载当前显示的图片
                     .bindImageView(imageView)// imageview控件
             ).show();
 	
+	
+	
 	//无view绑定使用
 	      transferee.apply(TransferConfig.build()
                         .setImageLoader(GlideImageLoader.with(getApplicationContext()))
-                        .setSourceUrlList()//图片或者视频的高清资源
+                        .setListData()//图片或者视频的高清资源
 			.setPosition(position)//显示第几个
                         .create()
                 ).show());
