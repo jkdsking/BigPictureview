@@ -1,8 +1,6 @@
 ## 仿朋友圈图片视频查看 
 ## 注意 需要展示图片的activity不能沉嵌式状态栏 必须不能
 
-![image](https://github.com/jkdsking/BigPictureview/blob/master/test1.mp4)
-
 ## gradle接入
 
 	allprojects {
