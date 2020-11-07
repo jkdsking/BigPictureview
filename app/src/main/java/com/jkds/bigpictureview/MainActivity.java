@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -21,7 +22,9 @@ import com.zhy.adapter.recyclerview.MultiItemTypeAdapter;
 import com.zhy.adapter.recyclerview.base.ViewHolder;
 public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
-    private GridView gridView,getGridView;
+    private GridView gridView;
+    private ImageView getGridView;
+    private Button btn_test;
     protected Transferee transferee;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,6 +84,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.rv_transferee);
         gridView = findViewById(R.id.gv_transferee);
         getGridView=findViewById(R.id.gv_transgif);
+        btn_test=findViewById(R.id.btn_test);
     }
 
     protected void testTransferee() {
@@ -120,7 +124,6 @@ public class MainActivity extends AppCompatActivity {
 
         final TransferConfig gridTransConfig = TransferConfig.build()
                 .setListData(SourceConfig.getMixingSourceGroup())
-                .setProgressIndicator(new ProgressBarIndicator())
                 .setIndexIndicator(new NumberIndexIndicator())
                 .setImageLoader(GlideImageLoader.with(getApplicationContext()))
                 .enableJustLoadHitPage(true)
@@ -134,20 +137,46 @@ public class MainActivity extends AppCompatActivity {
 
     //gif
 
+        Glide.with(MainActivity.this)
+                .load(SourceConfig.getMixingSourceGroupGif().get(0))
+                .placeholder(R.mipmap.ic_empty_photo)
+                .into(getGridView);
 
-        final TransferConfig gridTransConfigs = TransferConfig.build()
-                .setListData(SourceConfig.getMixingSourceGroupGif())
-                .setProgressIndicator(new ProgressBarIndicator())
-                .setIndexIndicator(new NumberIndexIndicator())
-                .setImageLoader(GlideImageLoader.with(getApplicationContext()))
-                .enableJustLoadHitPage(true)
-                .enableScrollingWithPageChange(true)
-                .bindListView(getGridView, R.id.iv_thum);
-        getGridView.setAdapter(new GridAdapterGif());
-        getGridView.setOnItemClickListener((parent, view, position, id) -> {
-            gridTransConfigs.setPosition(position);
-            transferee.apply(gridTransConfigs).show();
+
+        getGridView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                transferee.apply(TransferConfig.build()
+                        .setListData(SourceConfig.getMixingSourceGroupGif())//图片或者视频的高清资源
+                        .setImageLoader(GlideImageLoader.with(getApplicationContext()))
+                        .setIndexIndicator(new NumberIndexIndicator())
+                        .enableJustLoadHitPage(true)//只加载当前显示的图片
+                        .bindImageView(getGridView)// imageview控件
+                ).show();
+            }
         });
+
+        //无view绑定
+
+        btn_test.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                transferee.apply(TransferConfig.build()
+                        .setImageLoader(GlideImageLoader.with(getApplicationContext()))
+                        .setListData(SourceConfig.getOriginalSourceGroup())
+                        .setIndexIndicator(new NumberIndexIndicator())//是否显示指示器 传null 表示不显示
+                        .setNowThumbnailIndex(3)//显示第几个
+                        .create()
+                ).show();
+
+            }
+        });
+
+
+
+
+
 
     }
 
@@ -172,20 +201,5 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    private class GridAdapterGif extends com.zhy.adapter.abslistview.CommonAdapter<String> {
 
-        GridAdapterGif() {
-            super(MainActivity.this, R.layout.item_image, SourceConfig.getMixingSourceGroupGif());
-        }
-
-        @Override
-        protected void convert(com.zhy.adapter.abslistview.ViewHolder viewHolder, String item, final int position) {
-            final ImageView imageView = viewHolder.getView(R.id.iv_thum);
-                Glide.with(imageView)
-                        .load(item)
-                        .placeholder(R.mipmap.ic_empty_photo)
-                        .into(imageView);
-
-        }
-    }
 }
