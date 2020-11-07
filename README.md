@@ -96,7 +96,7 @@
                         .setListData()//图片或者视频的高清资源
 			.setPosition(position)//显示第几个
                         .create()
-                ).show());
+                ).show();
 	
 	
     
