@@ -3,7 +3,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
+import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.GridView;
@@ -20,6 +24,8 @@ import com.hitomi.tilibrary.utils.GlideImageLoader;
 import com.zhy.adapter.recyclerview.CommonAdapter;
 import com.zhy.adapter.recyclerview.MultiItemTypeAdapter;
 import com.zhy.adapter.recyclerview.base.ViewHolder;
+
+import java.util.List;
 public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private GridView gridView;
@@ -36,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
         testTransferee();
 
     }
+
 //
 ////        List<String> list = new ArrayList<>();
 //////                //网络图片
@@ -101,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onLongClick(ImageView imageView, String imageUri, int pos) {
 
-                Toast.makeText(MainActivity.this,"长按了"+imageUri,Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this,"长按了:"+imageUri,Toast.LENGTH_SHORT).show();
             }
         });
         RecyclerAdapter recyclerAdapter = new RecyclerAdapter();
@@ -162,11 +169,20 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+
+
                 transferee.apply(TransferConfig.build()
                         .setImageLoader(GlideImageLoader.with(getApplicationContext()))
                         .setListData(SourceConfig.getOriginalSourceGroup())
                         .setIndexIndicator(new NumberIndexIndicator())//是否显示指示器 传null 表示不显示
-                        .setNowThumbnailIndex(3)//显示第几个
+                        .setNowThumbnailIndex(0)//显示第几个
+                        .setOnLongClickListener(new Transferee.OnTransfereeLongClickListener() {
+                            @Override
+                            public void onLongClick(ImageView imageView, String imageUri, int pos) {
+                                Toast.makeText(MainActivity.this,"长按了:"+imageUri,Toast.LENGTH_SHORT).show();
+
+                            }
+                        })
                         .create()
                 ).show();
 

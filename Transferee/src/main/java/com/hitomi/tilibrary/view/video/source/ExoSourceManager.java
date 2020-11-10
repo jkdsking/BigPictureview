@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.net.Uri;
 import android.text.TextUtils;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
 
@@ -78,6 +79,7 @@ public class ExoSourceManager {
         mDataSource = dataSource;
         Uri contentUri = Uri.parse(dataSource);
         int contentType = inferContentType(dataSource, overrideExtension);
+
         switch (contentType) {
             case C.TYPE_SS:
                 mediaSource = new SsMediaSource.Factory(

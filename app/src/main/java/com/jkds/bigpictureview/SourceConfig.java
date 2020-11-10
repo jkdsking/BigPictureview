@@ -1,20 +1,16 @@
 package com.jkds.bigpictureview;
-
 import android.content.ContentResolver;
 import android.content.Context;
-import android.content.res.Resources;
 import android.database.Cursor;
 import android.net.Uri;
+import android.os.Environment;
 import android.provider.MediaStore;
-import android.util.Pair;
 
 import java.util.ArrayList;
 import java.util.List;
-
 /**
  * Created by Vans Z on 2018/9/26.
  */
-
 public class SourceConfig {
 
     public static List<String> getThumbSourceGroup() {
@@ -57,6 +53,8 @@ public class SourceConfig {
         sourceList.add("http://img3.duitang.com/uploads/item/201605/13/20160513144041_Ze3a4.gif");
         return sourceList;
     }
+
+
 
 
 }
