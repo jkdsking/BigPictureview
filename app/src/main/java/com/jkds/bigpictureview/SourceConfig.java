@@ -1,18 +1,10 @@
 package com.jkds.bigpictureview;
-import android.content.ContentResolver;
-import android.content.Context;
-import android.database.Cursor;
-import android.net.Uri;
-import android.os.Environment;
-import android.provider.MediaStore;
-
 import java.util.ArrayList;
 import java.util.List;
 /**
  * Created by Vans Z on 2018/9/26.
  */
 public class SourceConfig {
-
     public static List<String> getThumbSourceGroup() {
         List<String> thumbnailImageList = new ArrayList<>();
         thumbnailImageList.add("http://static.fdc.com.cn/avatar/sns/1486263782969.png@233w_160h_20q");

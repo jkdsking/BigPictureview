@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
         initView();
         testTransferee();
 
+
     }
 
 //
@@ -78,14 +79,11 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
     @Override
     protected void onDestroy() {
         super.onDestroy();
         transferee.destroy();
     }
-
-
 
     protected void initView() {
         recyclerView = findViewById(R.id.rv_transferee);
@@ -169,8 +167,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-
-
                 transferee.apply(TransferConfig.build()
                         .setImageLoader(GlideImageLoader.with(getApplicationContext()))
                         .setListData(SourceConfig.getOriginalSourceGroup())
@@ -186,16 +182,12 @@ public class MainActivity extends AppCompatActivity {
                         .create()
                 ).show();
 
+
             }
         });
 
 
-
-
-
-
     }
-
 
 
     private class GridAdapter extends com.zhy.adapter.abslistview.CommonAdapter<String> {
