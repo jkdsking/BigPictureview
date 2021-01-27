@@ -12,6 +12,10 @@
 	dependencies {
 	        implementation 'com.github.jkdsking:BigPictureview:1.3.3'
 	}
+
+    或者
+    implementation 'com.jkds:BigPicture:1.0.1'(不用添加上面的jitpack库)
+
  ## 具体使用
      protected Transferee transferee;声明
      
