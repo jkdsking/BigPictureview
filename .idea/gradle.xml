@@ -11,7 +11,7 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/Transferee" />
+            <option value="$PROJECT_DIR$/BigPicture" />
             <option value="$PROJECT_DIR$/app" />
           </set>
         </option>

@@ -1,0 +1,87 @@
+apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'com.jfrog.bintray'
+
+def siteUrl = 'https://github.com/jkdsking/BigPictureview' //项目在github主页地址
+def gitUrl = 'https://github.com/jkdsking/BigPictureview.git'   //Git仓库的地址
+group = "com.jkds"//发布aar前缀根节点
+version = "1.0.1"//发布aar的库版本
+//最后生成是compile 'com.jkds.permission:permission:1.0.0' 就是group + ：+module名字 + ：+version
+
+
+install {
+    repositories.mavenInstaller {
+        // This generates POM.xml with proper parameters
+        pom {
+            project {
+                packaging 'aar'
+                name 'BigPicture'//添加项目描述
+                url siteUrl
+                licenses {
+                    license {
+                        name 'The Apache Software License, Version 2.0'
+                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+                developers {
+                    developer {
+                        id 'jk'//设置自己ID
+                        name 'jkds'//设置自己名字
+                        email '958868434@qq.com'//设置自己邮箱
+                    }
+                }
+                scm {
+                    connection gitUrl
+                    developerConnection gitUrl
+                    url siteUrl
+                }
+            }
+        }
+    }
+}
+task sourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier = 'sources'
+}
+
+//task javadoc(type: Javadoc) {
+//    source = android.sourceSets.main.java.srcDirs
+//    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+//}
+
+
+task javadoc(type: Javadoc) {
+    source = android.sourceSets.main.java.srcDirs
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+    // destinationDir = file("../javadoc/")
+failOnError false // 忽略注释语法错误，如果用jdk1.8你的注释写的不规范就编译不过。
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+
+artifacts {
+    archives javadocJar
+    archives sourcesJar
+}
+
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+bintray {
+    user = properties.getProperty("bintray.user")
+    key = properties.getProperty("bintray.key")
+    configurations = ['archives']
+    pkg {
+        repo = "maven"
+        name = "BigPicture" //项目在JCenter的名字
+        userOrg = "jk"//Bintray的组织id
+        websiteUrl = siteUrl
+        vcsUrl = gitUrl
+        licenses = ["Apache-2.0"]
+        publish = true
+    }
+}

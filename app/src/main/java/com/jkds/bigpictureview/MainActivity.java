@@ -35,7 +35,12 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ImmersionBar.with(this).statusBarColor(R.color.colorPrimary).init();//修改状态栏
+        //不用沉嵌式代码写这句
+//        ImmersionBar.with(this).statusBarColor(R.color.colorPrimary).init();//修改状态栏
+
+        //沉潜式代码写这句
+        ImmersionBar.with(this).statusBarColor(R.color.color_transparent).statusBarDarkFont(true)   //状态栏字体是深色，不写默认为亮色
+                .navigationBarColor(R.color.colorWhite).init(); //导航栏图标是深色，不写默认为亮色.init();
         transferee = Transferee.init(this);//初始化
         setContentView(R.layout.activity_main);
         initView();
