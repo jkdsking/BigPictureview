@@ -36,14 +36,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //不用沉嵌式代码写这句
-//        ImmersionBar.with(this).statusBarColor(R.color.colorPrimary).init();//修改状态栏
 
         ImmersionBar.with(this).fitsSystemWindows(true).statusBarColor(R.color.colorWhite).statusBarDarkFont(true)
                 .navigationBarColor(R.color.colorWhite).init();
-
-        //沉潜式代码写这句
-//        ImmersionBar.with(this).statusBarColor(R.color.color_transparent).statusBarDarkFont(true)   //状态栏字体是深色，不写默认为亮色
-//                .navigationBarColor(R.color.colorWhite).init(); //导航栏图标是深色，不写默认为亮色.init();
         transferee = Transferee.init(this);//初始化
         setContentView(R.layout.activity_main);
         initView();
@@ -188,18 +183,7 @@ public class MainActivity extends AppCompatActivity {
                             }
                         })
                         .create()
-                ).show(new Transferee.OnTransfereeStateChangeListener() {
-                    @Override
-                    public void onShow() {
-
-                    }
-
-                    @Override
-                    public void onDismiss() {
-                        Toast.makeText(MainActivity.this,"dismiss",Toast.LENGTH_SHORT).show();
-
-                    }
-                });
+                ).show();
 
 
             }

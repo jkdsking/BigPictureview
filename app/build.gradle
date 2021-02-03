@@ -36,9 +36,9 @@ dependencies {
     implementation 'com.zhy:base-rvadapter:3.0.3'
     implementation 'com.github.bumptech.glide:glide:4.11.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
-        implementation project(':BigPicture')
+//        implementation project(':BigPicture')
 //    implementation 'com.github.jkdsking:BigPictureview:1.3.3'
 
-//    implementation 'com.jkds:BigPicture:1.0.1'
+    implementation 'com.jkds:BigPicture:1.0.1'
 
 }
