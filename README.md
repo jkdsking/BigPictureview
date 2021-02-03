@@ -21,11 +21,6 @@
      
      protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-	//因为展示图片的时候用了沉嵌式状态栏 把状态栏背景颜色改为透明了
-	返回的activity的时候状态栏会变成透明色 因此没有使用沉嵌式状态栏一定要提前设置好状态栏背景颜色
-	if(没有用沉嵌式状态栏){
-	  ImmersionBar.with(this).statusBarColor(R.color.colorPrimary).init();//修改状态栏背景颜色
-	}
         transferee = Transferee.init(this);//初始化
         setContentView(R.layout.activity_main);
 
