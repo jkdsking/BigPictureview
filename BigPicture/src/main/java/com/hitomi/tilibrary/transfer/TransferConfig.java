@@ -69,6 +69,8 @@ public final class TransferConfig {
 
     private Transferee.OnTransfereeLongClickListener longClickListener;
 
+
+
     public static Builder build() {
         return new Builder();
     }
@@ -386,6 +388,7 @@ public final class TransferConfig {
         private int footerSize;
 
         private Transferee.OnTransfereeLongClickListener longClickListener;
+        private Transferee.OnTransfereeStateChangeListener stateChangeListener;
 
         /**
          * 当前缩略图在所有图片中的索引
@@ -577,6 +580,17 @@ public final class TransferConfig {
         public Builder setOnLongClickListener(Transferee.OnTransfereeLongClickListener listener) {
             this.longClickListener = listener;
             return this;
+        }
+
+        /**
+         * 显示获取diss 监听
+         */
+
+        public Builder setOnStateClickListener(Transferee.OnTransfereeStateChangeListener listener){
+
+            this.stateChangeListener=listener;
+            return this;
+
         }
 
         /**

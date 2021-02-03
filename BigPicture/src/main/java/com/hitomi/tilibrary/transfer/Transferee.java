@@ -155,7 +155,7 @@ public class Transferee implements DialogInterface.OnShowListener,
     public void show(OnTransfereeStateChangeListener listener) {
         if (shown || listener == null) return;
         transDialog.show();
-//        adjustTopAndBottom();
+        adjustTopAndBottom();
         transListener = listener;
         transListener.onShow();
         shown = true;
@@ -166,6 +166,7 @@ public class Transferee implements DialogInterface.OnShowListener,
      */
     public void dismiss() {
         if (shown && transLayout.dismiss(transConfig.getNowThumbnailIndex())) {
+
             shown = false;
         }
 

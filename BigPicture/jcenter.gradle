@@ -4,7 +4,7 @@ apply plugin: 'com.jfrog.bintray'
 def siteUrl = 'https://github.com/jkdsking/BigPictureview' //项目在github主页地址
 def gitUrl = 'https://github.com/jkdsking/BigPictureview.git'   //Git仓库的地址
 group = "com.jkds"//发布aar前缀根节点
-version = "1.0.1"//发布aar的库版本
+version = "1.0.2"//发布aar的库版本
 //最后生成是compile 'com.jkds.permission:permission:1.0.0' 就是group + ：+module名字 + ：+version
 
 
