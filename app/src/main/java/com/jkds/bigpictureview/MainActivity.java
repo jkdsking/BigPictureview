@@ -26,6 +26,9 @@ import com.zhy.adapter.recyclerview.MultiItemTypeAdapter;
 import com.zhy.adapter.recyclerview.base.ViewHolder;
 
 import java.util.List;
+/**
+ * @author Administrator
+ */
 public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private GridView gridView;
@@ -35,8 +38,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //不用沉嵌式代码写这句
-
         ImmersionBar.with(this).fitsSystemWindows(true).statusBarColor(R.color.colorWhite).statusBarDarkFont(true)
                 .navigationBarColor(R.color.colorWhite).init();
         transferee = Transferee.init(this);//初始化
