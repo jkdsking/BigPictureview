@@ -212,6 +212,7 @@ public class Transferee implements DialogInterface.OnShowListener,
             Activity activity = (Activity) context;
             ImmersionBar.with(activity, transDialog)
                     .transparentNavigationBar()
+                    .statusBarDarkFont(true)
                     .init();
             int top = ImmersionBar.getNotchHeight(activity);
             int bottom = ImmersionBar.getNavigationBarHeight(activity);

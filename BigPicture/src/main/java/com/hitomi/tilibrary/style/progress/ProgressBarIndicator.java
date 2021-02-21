@@ -59,7 +59,9 @@ public class ProgressBarIndicator implements IProgressIndicator {
     @Override
     public void onFinish(int position) {
         ProgressBar progressBar = progressBarArray.get(position);
-        if (progressBar == null) return;
+        if (progressBar == null) {
+            return;
+        }
 
         ViewGroup vg = (ViewGroup) progressBar.getParent();
         ;
