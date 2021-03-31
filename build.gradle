@@ -19,7 +19,7 @@ allprojects {
         google()
         jcenter()
 //        maven { url('https://dl.bintray.com/jk/maven') }
-//        maven { url 'https://jitpack.io' }
+        maven { url 'https://jitpack.io' }
     }
 }
 
