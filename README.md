@@ -10,7 +10,7 @@
 	}
 	
 	dependencies {
-	        implementation 'com.github.jkdsking:BigPictureview:1.3.3'
+	        implementation 'com.github.jkdsking:BigPictureview:1.3.4'
 	}
 
     或者
