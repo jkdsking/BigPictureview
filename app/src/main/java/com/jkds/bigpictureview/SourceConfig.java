@@ -2,11 +2,14 @@ package com.jkds.bigpictureview;
 import java.util.ArrayList;
 import java.util.List;
 /**
- * Created by Vans Z on 2018/9/26.
+ *
+ * @author Vans Z
+ * @date 2018/9/26
  */
 public class SourceConfig {
     public static List<String> getThumbSourceGroup() {
         List<String> thumbnailImageList = new ArrayList<>();
+        thumbnailImageList.add("https://doctor-dev.metamedical.com.cn/api/ih-resources/images/1381457189083807744");
         thumbnailImageList.add("http://static.fdc.com.cn/avatar/sns/1486263782969.png@233w_160h_20q");
         thumbnailImageList.add("http://static.fdc.com.cn/avatar/sns/1485055822651.png@233w_160h_20q");
         thumbnailImageList.add("http://static.fdc.com.cn/avatar/sns/1486194909983.png@233w_160h_20q");
@@ -21,6 +24,7 @@ public class SourceConfig {
 
     public static List<String> getOriginalSourceGroup() {
         List<String> sourceImageList = new ArrayList<>();
+        sourceImageList.add("https://doctor-dev.metamedical.com.cn/api/ih-resources/images/1381457189083807744");
         sourceImageList.add("http://static.fdc.com.cn/avatar/sns/1486263782969.png");
         sourceImageList.add("http://static.fdc.com.cn/avatar/sns/1485055822651.png");
         sourceImageList.add("http://static.fdc.com.cn/avatar/sns/1486194909983.png");
