@@ -10,10 +10,10 @@
 	}
 	
 	dependencies {
-	        implementation 'com.github.jkdsking:BigPictureview:1.3.4'
+	        implementation 'com.github.jkdsking:BigPictureview:1.3.5'
 	}
 
-    或者
+    或者（已经废弃该仓库）
     implementation 'com.jkds:BigPicture:1.0.1'(不用添加上面的jitpack库)
 
  ## 具体使用
