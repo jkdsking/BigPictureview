@@ -170,7 +170,6 @@ public class MainActivity extends AppCompatActivity {
         btn_test.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 transferee.apply(TransferConfig.build()
                         .setImageLoader(GlideImageLoader.with(getApplicationContext()))
                         .setListData(SourceConfig.getOriginalSourceGroup())

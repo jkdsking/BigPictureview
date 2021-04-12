@@ -208,14 +208,14 @@ public class Transferee implements DialogInterface.OnShowListener,
      */
     private void adjustTopAndBottom() {
         if (context instanceof Activity) {
-            // 隐藏状态栏和导航栏，全屏化
+//            // 隐藏状态栏和导航栏，全屏化
             Activity activity = (Activity) context;
             ImmersionBar.with(activity, transDialog)
                     .transparentNavigationBar()
                     .statusBarDarkFont(true)
                     .init();
-            int top = ImmersionBar.getNotchHeight(activity);
-            int bottom = ImmersionBar.getNavigationBarHeight(activity);
+//            int top = ImmersionBar.getNotchHeight(activity);
+//            int bottom = ImmersionBar.getNavigationBarHeight(activity);
             transLayout.setPadding(0, 0, 0, 0);
         }
     }
